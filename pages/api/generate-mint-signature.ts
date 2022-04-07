@@ -6,6 +6,8 @@ export default async function generateMintSignature(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log("The date is:", Date.now());
+
   // De-construct body from request
   let { address, name, description, image } = JSON.parse(req.body);
   const sdk = new ThirdwebSDK(
