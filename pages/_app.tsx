@@ -1,8 +1,18 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ChainId } from "@thirdweb-dev/sdk";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <ThirdwebProvider
+      desiredChainId={ChainId.Rinkeby}
+      dAppMeta={{ name: "Xreators" }}
+      walletConnectors={["metamask"]}
+    >
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
