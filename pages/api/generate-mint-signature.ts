@@ -33,10 +33,7 @@ export default async function generateMintSignature(
       properties: {},
     },
     to: address,
-    // 10 years in the future
-    mintEndTime: new Date(Date.now() + 10 * 365 * 24 * 60 * 60 * 1000),
-    // 10 years in the past
-    mintStartTime: new Date(Date.now() - 10 * 365 * 24 * 60 * 60 * 1000),
+    mintStartTime: new Date(0),
   });
 
   console.log("sending back signed payload:", signedPayload);
